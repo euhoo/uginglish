@@ -1,11 +1,11 @@
 # uginglish
-learning English with cards
+studying English with cards
 
-1 итерация: нициализировать проект,
-2 итерация: определить основные библиотеки на фронте:
-    react, redux, axios, redux-connect, thunk, react-router, bootstrap 5 или библиотека компонентов,
-    типа material. 
-3 итерация: настроить сборку, линтер react-create-app, eslint
+done 1 итерация: нициализировать проект,
+done 2 итерация: определить основные библиотеки на фронте:
+    react, redux, axios, redux-connect, thunk, react-router, material, scss,
+3 итерация: настроить сборку,
+    3.1: настроить eslint, husky
 4 итерация: продумать архитектуру приложения
 5 итерация: продумать бизнес-логику приложения
         5.1 самая простая 1 страница. на ней отображается одна карточка. на карточке слово на Английском и картинка,
