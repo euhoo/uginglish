@@ -1,0 +1,13 @@
+.card-container{
+    min-height: 70vh;
+
+    background-color: #8ee6c7;
+}
+.cards-content{
+    margin:auto auto;
+}
+.cards-container__text{
+    padding-top:20vh;
+    font-size: 24px;
+
+}

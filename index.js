@@ -1,5 +1,6 @@
 import React  from "react";
 import ReactDOM from "react-dom";
-const App = 'test';
+import App from './src/index';
 
-ReactDOM.render(App, document.querySelector("#root"));
+// здесь можно инициализировать начальное состояние store
+ReactDOM.render(<App/>, document.querySelector("#root"));
