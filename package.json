@@ -1,0 +1,18 @@
+{
+  "name": "uginglish",
+  "version": "0.0.1",
+  "description": "learning English with cards",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/euhoo/uginglish.git"
+  },
+  "keywords": [
+    "english"
+  ],
+  "author": "Evgeniy Kvach",
+  "license": "ISC"
+}
