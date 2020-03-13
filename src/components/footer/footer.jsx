@@ -1,5 +1,5 @@
 import React from "react";
-import './header.sass';
+import './footer.sass';
 
 export default (props) => (
 	<div>

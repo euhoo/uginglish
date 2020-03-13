@@ -1,6 +1,6 @@
 import React from "react";
-import './cards.css';
-import Card from "../card/card.jsx";
+import './cards.sass';
+import Card from "../card";
 
 export default () => (
 	<>

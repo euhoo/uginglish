@@ -1,7 +1,8 @@
 import React from "react";
-import './header.sass';
+import './rightSection.sass';
 
 export default (props) => (
 	<div>
+		{props.children}
 	</div>
 )

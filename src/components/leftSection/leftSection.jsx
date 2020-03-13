@@ -1,5 +1,5 @@
 import React from "react";
-import './header.sass';
+import './leftSection.sass';
 
 export default (props) => (
 	<div>
