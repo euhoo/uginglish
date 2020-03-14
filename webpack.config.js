@@ -10,6 +10,12 @@ module.exports = {
 		filename: 'main.js',
 		path: path.resolve(__dirname, 'dist'),
 	},
+	externals: {
+		gon: 'gon',
+	},
+	resolve: {
+		extensions: ['.js', '.jsx'],
+	},
 	module: {
 		rules: [
 			{
@@ -43,9 +49,12 @@ module.exports = {
 		],
 	},
 	devServer: {
-		contentBase: [path.resolve(__dirname, "build"), path.resolve(__dirname, "assets")],
+		contentBase: [path.resolve(__dirname, "dist")],
 		compress: true,
 		port: 9080,
+		proxy: {
+			'/': `http://127.0.0.1:4000`,
+		},
 		watchContentBase: true,
 		progress: true
 	},

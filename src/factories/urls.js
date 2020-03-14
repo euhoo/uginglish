@@ -8,7 +8,11 @@ const makeGetRequestObj = (url) => ({
 });
 
 const makeTodayWordsReqObj = () => makeGetRequestObj(`api/words/todayWords?userId=${userId}`);
+const makeDefault= () => makeGetRequestObj(`/`);
+const makeInfoReqObj= () => makeGetRequestObj(`/info`);
 
 export default {
-	makeTodayWordsReqObj
+	makeTodayWordsReqObj,
+	makeDefault,
+	makeInfoReqObj
 }
