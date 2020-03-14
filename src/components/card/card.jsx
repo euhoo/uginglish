@@ -1,21 +1,24 @@
-import React, {Component} from "react";
+import React, {useEffect} from "react";
 import './card.sass';
+import reqApi from '../../factories/requests';
 
-export default class Card extends Component {
-	render() {
-		const {children, text} = this.props;
-		return (
-			<div className="card card-container">
-				<div className="card-body cards-container__body">
-					<p className="card-text text-center cards-container__text">
-						{text}
-					</p>
-					<div className="cards-container__input">
-						{children}
-
-					</div>
-				</div>
+export default (props) => {
+	const {children, text} = props;
+	useEffect(() => {
+		reqApi.getTodayWords().then(data => {
+			console.log(data)
+		});
+	});
+	return (
+		<div className="card-container">
+			<div className="card-container__word text-center">
+				<p className="card-container__text">
+					Оченьдлинноепредлинноеслово
+				</p>
 			</div>
-		)
-	}
+			<div className="card-container__input text-center">
+				<input type="text" placeholder="введи перевод"/>
+			</div>
+		</div>
+	)
 }

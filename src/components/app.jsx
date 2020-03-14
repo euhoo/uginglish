@@ -1,22 +1,17 @@
 import React, {Component} from "react"
 import Header from './header'
-import Cards from "./cards"
-import Main from './main'
 import LeftSection from './leftSection'
 import RightSection from './rightSection'
 import Footer from './footer'
+import './app.sass'
 
 export default class App extends Component {
 	render() {
 		return (
-			<div className="app-container">
+			<div className="app-container grid">
 				<Header className="header-container"/>
-				<Main classNam="main-container">
-					<LeftSection className="section-left-container"/>
-					<RightSection className="section-main-container">
-							<Cards className="cards-container"/>
-					</RightSection>
-				</Main>
+				<LeftSection className="section-left-container"/>
+				<RightSection className="section-right-container"/>
 				<Footer className="footer-container"/>
 			</div>
 		)
