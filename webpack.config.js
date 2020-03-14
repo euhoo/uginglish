@@ -1,7 +1,10 @@
+const appConfig = require('./config');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const {port} = appConfig.devOptions;
 
 module.exports = {
 	entry: './index.js',
@@ -53,7 +56,7 @@ module.exports = {
 		compress: true,
 		port: 9080,
 		proxy: {
-			'/': `http://127.0.0.1:4000`,
+			'/': `http://127.0.0.1:${port}`,
 		},
 		watchContentBase: true,
 		progress: true

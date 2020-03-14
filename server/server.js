@@ -1,20 +1,28 @@
 import express from 'express'
-
+import user from "./routes/user";
+import words from "./routes/words";
+import indexRouter from "./routes/indexRouter";
+import logging from "./logging";
+import errors from './errors';
 const app = express();
-app.get('/info', (request, response) => {
-	response.send('Simple server working!')
-});
 
-app.use((request, response, next) => {
-	console.log(request.headers);
-	next()
-});
+export default (port, api, serverStartFunc) => {
+// setup directory for files
+	app.use(express.static('dist'));
 
-app.use((err, request, response, next) => {
-	// логирование ошибки, пока просто console.log
-	console.log(err);
-	response.status(500).send("Something broke")
-});
+//setup routes
+	app.use(`/${api}/user`, user);
+	app.use(`/${api}/words`, words);
+	app.use(`/${api}/`, indexRouter);
+	app.use(`/`, indexRouter);
 
-app.listen(4000);
-export default app;
+//setup logging
+	app.use(logging);
+
+//setup errors - подключать последним use
+	app.use(errors);
+
+	//listening port
+	app.listen(port);
+	serverStartFunc && serverStartFunc();
+}

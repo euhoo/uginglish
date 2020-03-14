@@ -7,7 +7,7 @@ const makeGetRequestObj = (url) => ({
 	url
 });
 
-const makeTodayWordsReqObj = () => makeGetRequestObj(`api/words/todayWords?userId=${userId}`);
+const makeTodayWordsReqObj = () => makeGetRequestObj(`/api/words/todayWords?userId=${userId}`);
 const makeDefault= () => makeGetRequestObj(`/`);
 const makeInfoReqObj= () => makeGetRequestObj(`/info`);
 
