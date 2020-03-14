@@ -1,0 +1,48 @@
+@import 'src/variables'
+
+body
+  margin: 0
+  padding: 0
+
+.app-container
+  max-height: 100vh
+  min-height: 100vh
+  max-width: 100vw
+  min-width: 100vw
+  display: grid
+  //background-color: lightgreen
+  grid-template: 50px 1fr 50px /  2fr 10fr
+  grid-template-areas: "h h h" "l r r" "f f f"
+  @media screen and (max-width: $mobile)
+    grid-template: 50px 1fr /  2fr 10fr
+    grid-template-areas: "h h" "r r"
+  @media screen and (min-width: $mobile + 1) and (max-width: $tablet)
+    grid-template: 60px 1fr 60px /  2fr 10fr
+    grid-template-areas: "h h" "r r" "f f"
+  @media screen and (min-width: $tablet + 1) and (max-width: $ipad)
+    grid-template: 60px 1fr 60px /  3fr 9fr
+    grid-template-areas: "h h h" "l r r" "f f f"
+  @media screen and (min-width: $ipad + 1) and (max-width: $desktop)
+    grid-template: 60px 1fr 60px /  3fr 9fr
+    grid-template-areas: "h h h" "l r r" "f f f"
+
+.header-container
+  grid-area: h
+  background-color: $primary-color
+  border-bottom: $primary-border
+
+.footer-container
+  grid-area: f
+  background-color: $primary-color
+  border-top: $primary-border
+
+.section-left-container
+  grid-area: l
+  @media screen and (max-width: $tablet)
+    display: none
+.section-right-container
+  grid-area: r
+  //background-color: gray
+
+.text-center
+  text-align: center

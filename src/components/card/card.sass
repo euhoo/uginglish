@@ -1,12 +1,28 @@
+@import 'src/fonts'
+@import "src/variables"
+
 .card-container
-  min-height: 50vh
-  background-color: #e6b853
+  padding: 5px
+  max-width: 100%
+  max-height: 100%
+  background-color: $primary-color
+  border: $primary-border
+  border-radius: $border-radius
 
-.cards-content
-  margin: 0 auto
+.card-container__word
+  margin: 30px auto 0
+  padding: 20px
+  p
+    font-size: 24px
+    &::first-letter
+      font-family: 'Izhitsa', serif
+      text-transform: uppercase
+      color: rgb(255, 0, 0)
+      font-weight: bold
 
-.cards-container__text
-  padding-top: 20vh
-  font-size: 24px
+.card-container__text
+  word-break: break-word
 
-
+.card-container__input
+  padding: 20px
+  margin-bottom: 40px
