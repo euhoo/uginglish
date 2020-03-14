@@ -1,0 +1,35 @@
+@import 'src/variables'
+
+.login-container-wrapper
+  height: 100%
+  display: grid
+  grid-template: repeat(12, 1fr) /  1fr
+  grid-template-areas: "." "." "." "." "il" "ip" "ib" "ie" "." "." "." "." "."
+  align-items: center
+  justify-items: center
+  //@media screen and (max-width: $mobile)
+  //  grid-template: 1fr /  2fr 10fr
+  //  grid-template-areas: "r r"
+  //@media screen and (min-width: $mobile + 1) and (max-width: $tablet)
+  //  grid-template: 1fr /  2fr 10fr
+  //  grid-template-areas: "r r"
+  //@media screen and (min-width: $tablet + 1) and (max-width: $ipad)
+  //  grid-template: 1fr /  3fr 9fr
+  //  grid-template-areas: "l r"
+  //@media screen and (min-width: $ipad + 1) and (max-width: $desktop)
+  //  grid-template: 1fr /  3fr 9fr
+  //  grid-template-areas: "l r"
+
+.login-container__input_login
+  grid-area: il
+
+.login-container__input_password
+  grid-area: ip
+
+.login-container__input_btn
+  grid-area: ib
+
+.login-container__input_error
+  grid-area: ie
+
+

@@ -3,13 +3,13 @@ import store from '../store';
 
 export const fillUserInfo = () => {
 	const sessionUserInfo = sessionStorage.userInfo;
-	console.log('sessionUserInfo: ', sessionUserInfo);
+	// console.log('sessionUserInfo: ', sessionUserInfo);
 	if(sessionUserInfo){
 		store && store.dispatch(addUserInfo(sessionUserInfo));
 		return;
 	}
 	const localUserInfo = localStorage.userInfo;
-	console.log('localUserInfo: ', localUserInfo);
+	// console.log('localUserInfo: ', localUserInfo);
 	if(localUserInfo){
 		store && store.dispatch(addUserInfo(localUserInfo));
 		return;

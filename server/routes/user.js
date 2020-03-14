@@ -1,6 +1,10 @@
 import express from "express";
+import {findUser, normaliseResponse} from "../utils/utils";
+const bodyParser = require("body-parser");
 
 const router = express.Router();
+
+var jsonParser = bodyParser.json();
 /* примеры*/
 // POST request to delete BookInstance.
 // router.post('/bookinstance/:id/delete', book_instance_controller.bookinstance_delete_post);
@@ -12,8 +16,13 @@ const router = express.Router();
 router.get('/info', (request, response) => {
 	response.send('Simple server working!')
 });
-router.post('/login', (request, response) => {
-	console.log(request)
+router.post('/login', jsonParser, (request, response) => {
+	const data = request.body;
+	if(!data) return response.sendStatus(400);
+	const userData = findUser(data);
+	if(!userData) return response.send({error: true});
+	const normalizedData = normaliseResponse(userData);
+	response.send({...normalizedData});
 });
 
 export default router

@@ -1,10 +1,9 @@
 export default {
 	"asdfads": {
-		"login": "euhoo",
-		"password": "euhoo",
+		"login": "1",
+		"password": "1",
 		"name": "Eugene",
 		"surname": "Kvach",
 		"id": "asdfads",
 	},
-
 }

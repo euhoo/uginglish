@@ -1,17 +1,19 @@
 import axios from 'axios'
-import urlsApi from './urls';
+import urls from './urls';
 
-const basicRequestFunc = (makeObjFunc) => {
-	const reqObj = makeObjFunc();
+const basic = (makeObjFunc, data) => {
+	const reqObj = makeObjFunc(data);
 	return axios(reqObj);
 };
 
-const getTodayWords = () => basicRequestFunc(urlsApi.makeTodayWordsReqObj);
-const getDefault = () => basicRequestFunc(urlsApi.makeDefault);
-const getInfo = () => basicRequestFunc(urlsApi.makeInfoReqObj);
+const getTodayWords = () => basic(urls.makeTodayWordsReqObj);
+const getDefault = () => basic(urls.makeDefault);
+const getInfo = () => basic(urls.makeInfoReqObj);
+const postLogin = (data) => basic(urls.makeLoginReqObj, data);
 
 export default {
 	getTodayWords,
 	getDefault,
 	getInfo,
+	postLogin,
 }
