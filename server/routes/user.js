@@ -1,4 +1,4 @@
-import * as express from "express";
+import express from "express";
 
 const router = express.Router();
 /* примеры*/
@@ -11,6 +11,9 @@ const router = express.Router();
 
 router.get('/info', (request, response) => {
 	response.send('Simple server working!')
+});
+router.post('/login', (request, response) => {
+	console.log(request)
 });
 
 export default router

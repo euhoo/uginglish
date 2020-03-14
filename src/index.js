@@ -1,4 +1,14 @@
 import App from './components/app.jsx';
-//здесь подключить хранилище, собрать все компоненты и так далее
+import React from "react";
+import {Provider} from "react-redux";
+import makeStoreFunc from './store';
+//здесь подключить хранилище, приложение, router
 
-export default App;
+const normalizedStore = {};
+const store = makeStoreFunc(normalizedStore);
+export default () => (
+	<Provider store={store}>
+		<App/>
+	</Provider>
+);
+
