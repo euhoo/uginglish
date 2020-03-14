@@ -1,0 +1,38 @@
+@import 'src/variables'
+
+.section-container
+  height: 100%
+  display: grid
+  grid-template: 1fr /  2fr 10fr
+  grid-template-areas: "l r"
+  @media screen and (max-width: $mobile)
+    grid-template: 1fr /  2fr 10fr
+    grid-template-areas: "r r"
+  @media screen and (min-width: $mobile + 1) and (max-width: $tablet)
+    grid-template: 1fr /  2fr 10fr
+    grid-template-areas: "r r"
+  @media screen and (min-width: $tablet + 1) and (max-width: $ipad)
+    grid-template: 1fr /  3fr 9fr
+    grid-template-areas: "l r"
+  @media screen and (min-width: $ipad + 1) and (max-width: $desktop)
+    grid-template: 1fr /  3fr 9fr
+    grid-template-areas: "l r"
+
+.header-container
+  grid-area: h
+  background-color: $primary-color
+  border-bottom: $primary-border
+
+.footer-container
+  grid-area: f
+  background-color: $primary-color
+  border-top: $primary-border
+
+.section-left-container
+  grid-area: l
+  background-color: green
+  @media screen and (max-width: $tablet)
+    display: none
+.section-right-container
+  grid-area: r
+  background-color: gray

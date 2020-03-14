@@ -1,14 +1,24 @@
-import App from './components/app.jsx';
 import React from "react";
 import {Provider} from "react-redux";
-import makeStoreFunc from './store';
-//здесь подключить хранилище, приложение, router
+import Routes from './router';
+import Header from './components/header';
+import Footer from './components/footer'
+import store from './store';
+import {fillUserInfo, ifUserInfo} from "./utils/storeFuncs";
+import './css/grid.sass';
 
-const normalizedStore = {};
-const store = makeStoreFunc(normalizedStore);
-export default () => (
+ifUserInfo();
+fillUserInfo();
+
+export default (props) => (
 	<Provider store={store}>
-		<App/>
+		<div className="app-container grid">
+			<Header className="header-container"/>
+			<div className="main-section-container">
+				<Routes history={props.history}/>
+			</div>
+			<Footer className="footer-container"/>
+		</div>
 	</Provider>
 );
 

@@ -7,7 +7,7 @@ export default (state = {}, action) => {
 		case ADD_USER_INFO: {
 			const {data} = action.payload;
 			const newState =  {userData: data};
-			console.log(newState);
+			console.log("newState: ",newState);
 			return newState;
 		}
 		default: {
