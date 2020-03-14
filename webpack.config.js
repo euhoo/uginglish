@@ -33,11 +33,17 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'babel-loader',
 			},
-
+			{
+				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+				loader: 'file-loader?name=./assets/fonts/[name].[ext]',
+				options: {
+					name: '[name].[ext]'
+				}
+			},
 		],
 	},
 	devServer: {
-		contentBase: path.join(__dirname, "dist"),
+		contentBase: [path.resolve(__dirname, "build"), path.resolve(__dirname, "assets")],
 		compress: true,
 		port: 9080,
 		watchContentBase: true,
