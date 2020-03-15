@@ -4,11 +4,14 @@ import Routes from './router';
 import Header from './components/header';
 import Footer from './components/footer'
 import store from './store';
-import {fillUserInfo, ifUserInfo} from "./utils/storeFuncs";
 import './css/grid.sass';
+import {updateUserInfoStore} from "./factories/actionsFactory";
+import userApi from "./factories/userFactory";
 
-ifUserInfo();
-fillUserInfo();
+const userId = userApi.getUserId();
+userId && userApi.authUserById(userId).then(response => {
+	response.data && updateUserInfoStore(response.data)
+});
 
 export default (props) => (
 	<Provider store={store}>

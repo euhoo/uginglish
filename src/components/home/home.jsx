@@ -1,28 +1,8 @@
-import React, {Component} from "react";
-import actions from "../../store/actions";
-import {connect} from "react-redux";
-import {ifUserInfo} from "../../utils/storeFuncs";
+import React from "react";
 import {Redirect} from "react-router-dom";
+import {isAuthentificated} from "../../factories/userFactory";
 
-const {addUserInfo} = actions;
-const currentActions = {addUserInfo};
-const mapStateToProps = ({userInfo}) => ({userInfo});
+export default () => (
+	isAuthentificated() ? <Redirect to='/application'/> : <Redirect to='/login'/>
+)
 
-class Home extends Component {
-	state = {
-
-	};
-
-	componentDidMount = () => {
-		const {userInfo} = this.props;
-		const isUserInfo = ifUserInfo(userInfo);
-		this.setState({isUserInfo});
-	};
-
-	render() {
-		const {isUserInfo} = this.state;
-		return isUserInfo ? <Redirect to='/application'/> : <Redirect to='/login'/>
-	}
-}
-
-export default connect(mapStateToProps, currentActions)(Home)

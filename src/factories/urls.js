@@ -1,7 +1,7 @@
+import {getUserId} from "./userFactory";
+
 const appConfig = require("../../config");
 const {api} = appConfig;
-const {userInfo} = sessionStorage;
-const userId = userInfo ? userInfo.userId : '';
 const options = {withCredentials: true};
 
 const makeGetRequestObj = (url) => ({
@@ -15,14 +15,16 @@ const makePostRequestObj = (url, data) => ({
 	url: `/${api}/${url}`,
 	data,
 });
-const makeTodayWordsReqObj = () => makeGetRequestObj(`/words/todayWords?userId=${userId}`);
+const makeTodayWordsReqObj = () => makeGetRequestObj(`/words/todayWords?userId=${getUserId()}`);
 const makeDefault = () => makeGetRequestObj(`/`);
 const makeInfoReqObj = () => makeGetRequestObj(`/info`);
-const makeLoginReqObj = (data) => makePostRequestObj(`/user/login`, data);
+const makeAuthReqObj = (id) => makePostRequestObj(`user/auth`, id);
+const makeLoginReqObj = (data) => makePostRequestObj(`user/login`, data);
 
 export default {
 	makeTodayWordsReqObj,
 	makeDefault,
 	makeInfoReqObj,
-	makeLoginReqObj
+	makeLoginReqObj,
+	makeAuthReqObj
 }

@@ -6,7 +6,6 @@ import Login from './components/login'
 
 export default (props) => {
 	const { history } = props;
-	console.log(history);
 	return (
 		<Router>
 			{/*<Link to="/">Home</Link>*/}
@@ -14,7 +13,7 @@ export default (props) => {
 			<Route path='/login' component={Login}/>
 			{/*<Route path='/registration' component={Registration}/>*/}
 			<Route path='/application' component={Words}/>
-			<Route path='/404' component={Error}/>
+			{/*<Route path='/404' component={Error}/>*/}
 		</Router>
 	)
 }

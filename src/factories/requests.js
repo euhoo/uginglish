@@ -9,6 +9,7 @@ const basic = (makeObjFunc, data) => {
 const getTodayWords = () => basic(urls.makeTodayWordsReqObj);
 const getDefault = () => basic(urls.makeDefault);
 const getInfo = () => basic(urls.makeInfoReqObj);
+const postAuthById = (data) => basic(urls.makeAuthReqObj, data);
 const postLogin = (data) => basic(urls.makeLoginReqObj, data);
 
 export default {
@@ -16,4 +17,5 @@ export default {
 	getDefault,
 	getInfo,
 	postLogin,
+	postAuthById,
 }

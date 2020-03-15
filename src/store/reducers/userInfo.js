@@ -6,8 +6,7 @@ export default (state = {}, action) => {
 	switch (action.type) {
 		case ADD_USER_INFO: {
 			const {data} = action.payload;
-			const newState =  {userData: data};
-			console.log("newState: ",newState);
+			const newState =  data;
 			return newState;
 		}
 		default: {

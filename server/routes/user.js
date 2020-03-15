@@ -1,5 +1,5 @@
 import express from "express";
-import {findUser, normaliseResponse} from "../utils/utils";
+import {findUserById, findUserByLoginAndPassword, normaliseResponse} from "../utils/utils";
 const bodyParser = require("body-parser");
 
 const router = express.Router();
@@ -19,10 +19,18 @@ router.get('/info', (request, response) => {
 router.post('/login', jsonParser, (request, response) => {
 	const data = request.body;
 	if(!data) return response.sendStatus(400);
-	const userData = findUser(data);
+	const userData = findUserByLoginAndPassword(data);
 	if(!userData) return response.send({error: true});
 	const normalizedData = normaliseResponse(userData);
 	response.send({...normalizedData});
+});
+router.post('/auth', jsonParser, (req, res) => {
+	const data = req.body;
+	if(!data) return res.sendStatus(400);
+	const userData = findUserById(data);
+	if(!userData) return res.send({error: true});
+	const normalizedData = normaliseResponse(userData);
+	res.send({data:{...normalizedData}});
 });
 
 export default router
