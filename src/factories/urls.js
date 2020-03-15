@@ -18,8 +18,8 @@ const makePostRequestObj = (url, data) => ({
 const makeTodayWordsReqObj = () => makeGetRequestObj(`/words/todayWords?userId=${getUserId()}`);
 const makeDefault = () => makeGetRequestObj(`/`);
 const makeInfoReqObj = () => makeGetRequestObj(`/info`);
-const makeAuthReqObj = (id) => makePostRequestObj(`user/auth`, id);
-const makeLoginReqObj = (data) => makePostRequestObj(`user/login`, data);
+const makeAuthReqObj = (id) => makePostRequestObj(`/user/auth`, id);
+const makeLoginReqObj = (data) => makePostRequestObj(`/user/login`, data);
 
 export default {
 	makeTodayWordsReqObj,
